@@ -1,0 +1,17 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <ion-title>
+      Pick a mood
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <!-- List Controller -->
+  <ion-list>
+    <button ion-item *ngFor="let category of categories" (click)="loader(category.Id, category.value)">{{category.value}}</button>
+  </ion-list>
+
+  <!-- Button Controller -->
+  <button ion-button [navPush]="detailPage" [navParams]="params">Go to Details Page </button>
+</ion-content>

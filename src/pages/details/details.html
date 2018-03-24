@@ -1,0 +1,53 @@
+<!--
+  Generated template for the DetailsPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar color="primary">
+    <ion-title>{{categoryValue}}</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <!-- For category: Food -->
+  <div *ngIf="categoryID === 'food'">
+    <!--Component : Card-->
+    <div *ngFor="let food of foodList">
+      <ion-card>
+        <img class="food" src="{{food.foodImgPath}}"/>
+        <div class="card-title">{{food.foodName}}</div>
+      </ion-card>
+    </div> <!--Component : Card end-->
+  </div>
+
+  <!-- For category: Movies -->
+  <div *ngIf="categoryID === 'movie'">
+    <!--Component : Card-->
+    <div *ngFor="let movie of movieList">
+      <ion-card>
+        <img src="{{movie.movieImgPath}}"/>
+      </ion-card>
+    </div> <!--Component : Card end-->
+  </div>
+
+  <!-- For category: Places -->
+  <div *ngIf="categoryID === 'places'">
+    <!--Component : Card-->
+    <div *ngFor="let place of placeList">
+      <ion-card>
+        <img class="place" src="{{place.placeImgPath}}"/>
+        <div class="card-title">{{place.placeName}}</div>
+      </ion-card>
+    </div> <!--Component : Card end-->
+  </div>
+
+  {{categoryID}}
+  <!-- Div if page loaded by a click on button from home page -->
+  <div *ngIf="categoryID === 'blank'">
+    <div>Please go back to previous page and choose a mood!!</div>
+    <button ion-button navPop>Previous Page </button>
+  </div>
+
+</ion-content>
